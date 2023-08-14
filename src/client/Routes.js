@@ -1,11 +1,9 @@
-import React from 'react';
-import App from './App';
-import Home from './pages/Home';
-import Blog from './pages/Blog';
-import Vocab from './pages/Vocab';
-import Setting from './pages/Setting';
-import Login from './pages/Login';
-import NotFound from './pages/NotFound';
+import React from "react";
+import App from "./App";
+import Home from "./pages/Home";
+import Setting from "./pages/Setting";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 
 export default [
   {
@@ -13,31 +11,21 @@ export default [
     routes: [
       {
         ...Home,
-        path: '/',
+        path: "/",
         exact: true,
-        name: '首頁'
-      },
-      {
-        ...Blog,
-        path: '/blog',
-        name: '部落格'
-      },
-      {
-        ...Vocab,
-        path: '/vocab',
-        name: '單字庫'
+        name: "首頁",
       },
       {
         ...Setting,
-        path: '/setting',
-        name: '進階設定'
+        path: "/setting",
+        name: "設定",
       },
       {
         ...Login,
-        path: '/login',
-        name: '登入'
+        path: "/login",
+        name: "登入",
       },
-      { ...NotFound }
-    ]
-  }
+      { ...NotFound },
+    ],
+  },
 ];

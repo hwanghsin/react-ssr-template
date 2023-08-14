@@ -1,21 +1,14 @@
-import 'babel-polyfill';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import { renderRoutes } from 'react-router-config';
-import Routes from './Routes';
-import reducers from '../redux/reducers';
-import { firebaseApp } from '../helpers/firebase';
+import "babel-polyfill";
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import { renderRoutes } from "react-router-config";
+import Routes from "./Routes";
+import reducers from "../redux/reducers";
 
-const middlewares = [thunk.withExtraArgument(firebaseApp)];
-const store = createStore(
-  reducers,
-  window.INITIAL_STATE,
-  applyMiddleware(...middlewares)
-);
+const store = createStore(reducers, window.INITIAL_STATE);
 
 ReactDOM.hydrate(
   <Provider store={store}>
@@ -23,5 +16,5 @@ ReactDOM.hydrate(
       <div>{renderRoutes(Routes)}</div>
     </BrowserRouter>
   </Provider>,
-  document.querySelector('#root')
+  document.querySelector("#root")
 );
